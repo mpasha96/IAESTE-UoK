@@ -1,0 +1,4 @@
+What does big and little endian mean
+Name three number system programming languages usually support
+What is the full form of DNS
+

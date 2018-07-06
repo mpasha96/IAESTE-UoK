@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="frame" id="welcomeframe">
+            <div class="main-logo">
+                <img src="./uok.png"> <br>
+            </div>
+            <div class="heading">Welcome to all of you who made it to the Finals</div>            
+            <div class="heading subh">This will be the true test of your Intelligence but most importantly,
+                what it means to you to be recognized as the most geekiest of all
+            </div>
+            <div class="big-btn" id="btn">Let the game begin</div>
+        </div>
+        <div class="frame" id="qframe">
+            <div class="main-logo"><img src="./uok.png"></div>
+            <div class="teambar">
+               <div class="teamtile" id="teamred">
+                   TEAM RED
+                   <div class="score" id="teamredscore">0</div>
+                </div><!--
+               --><div class="teamtile" id="teamgreen">
+                   TEAM GREEN
+                   <div class="score" id="teamgreenscore">0</div>
+                </div><!--
+               --><div class="teamtile" id="teamblue">
+                   TEAM BLUE
+                   <div class="score" id="teambluescore">0</div>
+                </div>
+            </div>
+            <div class="heading question" id="question">Are you ready to rock and roll?</div>
+            <div class="clock" id="clock">45</div>
+        </div>
+        <div class="sponsor left">
+            <img src="./iaeste.png">
+        </div>
+        <div class="sponsor right">
+            <img src='./koder.png'>
+        </div>
+        <div class="watermark">
+            DEVELOPER SAYAM QAZI
+        </div>
+    </body>
+
+    <script>
+        //total team colors
+        var teams = [
+            {selector : "teamred", score : 0},
+            {selector : "teamgreen", score : 0},
+            {selector : "teamblue", score : 0}
+        ];
+
+        //total questions
+        var questions = [
+            "What is the full from of JVM",
+            "what is the full form of MVC",
+            "what is the full form of BST",
+            "Compiler reads the whole code at once, What is its line by line reading counterpart called?",
+            "What is the most ammount of ram a 32 bit OS can use?",
+            "Name three types of linked lists",
+            "Name any two specific types of trees",
+            "An integer is divided by another integer in a program. What happens to the qoutient if they are not perfectly divisible",
+            "Complexity of a naive prime finding algorithm grows by?"
+        ];
+
+        //state variables
+        currentQuestion = -1;
+        currentTeam = -1;
+
+        var clockHandle;
+        sec = 45;
+        //state transitions
+
+        function gotoNextQuestion() {
+            if (currentQuestion < questions.length)
+                currentQuestion ++;
+            if (currentQuestion === questions.length) {
+                endQuiz();
+                return;
+            }
+            renderQuestion();
+            gotoNextTeam();
+            endClock();
+            beginClock();
+        }
+        function renderQuestion() {
+            document.getElementById("question").innerText = questions[currentQuestion];
+        }
+        function gotoNextTeam() {
+            if (currentTeam > -1)
+                document.getElementById(
+                    teams[currentTeam].selector
+                ).style.height = "auto";
+            if (currentTeam < teams.length)
+                currentTeam ++;
+            if (currentTeam === teams.length)
+                currentTeam = 0;
+            document.getElementById(
+                teams[currentTeam].selector
+            ).style.height = "150px";
+        }
+        function updateScore() {
+            teams[currentTeam].score ++;
+            renderScore();
+        }
+        function renderScore() {
+            document.getElementById(
+                teams[currentTeam].selector + "score"
+            ).innerText = teams[currentTeam].score + "";
+        }
+
+        function beginClock() {
+            sec = 45;
+            renderClock();
+            clockHandle = window.setInterval(advanceClock , 1000);    
+        }
+        function advanceClock() {
+            if (sec > 0)
+                sec --;
+            else
+                endClock();
+            renderClock();
+        }
+        function pauseClock() {
+            window.clearInterval(clockHandle);
+        }
+        function endClock () {
+            window.clearInterval(clockHandle);
+            sec = 0;
+        }
+        
+        function renderClock() {
+            document.getElementById("clock").innerText = "" + sec;
+        }
+
+        function beginQuiz() {
+            document.getElementById("qframe").style.display = "block";
+            document.getElementById("welcomeframe").style.display = "none";       
+            window.addEventListener("keyup" , onKeyPress);
+        }
+        function onKeyPress(e) {
+            if (e.keyCode === 13) {
+                gotoNextQuestion();
+            }
+            else if (e.keyCode === 32) {
+                pauseClock();
+                updateScore();
+            }
+        }
+        function endQuiz() {
+            document.getElementById("question").innerHTML = "Thank you for playing!" +
+            "<br>" + "See you in the next round.";
+            document.getElementById("clock").style.display = "none";
+            window.removeEventListener("keyup", onKeyPress);
+        }
+
+        document.getElementById("btn").addEventListener(
+            "click",
+            (e) => {
+                beginQuiz();
+            }
+        )
+
+    </script>
+</html>

@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #ededed;
+                user-select: none;
+                cursor : pointer;
+            }
+            .logo {
+                position: absolute;
+                width : 400px;
+                height: 200px;
+                top : 25px;
+                left : calc(50% - 200px);
+            }
+            .timer {
+                position: absolute;
+                top : 25%;
+                right : 0;
+                bottom : 0;
+                left : 0;
+                color : #444;
+                font-family: "Calibri";
+                font-weight: lighter;
+                font-size: 200px;
+                text-align: center;
+            }
+            .barback {
+                width : 400px;
+                height : 10px;
+                background-color: #aaa;
+                position: absolute;
+                top : 65%;
+                right: calc(50% - 200px);
+            }
+            .bar {
+                width : 100%;
+                background-color: #3b5998;
+                height : 100%;
+
+            }
+            .footer {
+                position: absolute;
+                right : 0;
+                left : 0;
+                bottom : 0;
+            }
+            .sponsor {
+                width : 200px;
+                height : 100px;
+            }
+            .sa {
+              float : left;
+              margin : 0 0 10px 10px;
+            }
+            .sb {
+                float : right;
+                margin : 0 10px 10px 0;
+            }
+            .coder  {
+                color : #888;
+                font-size: 16px;
+                position: absolute;
+                width : 200px;
+                font-family: consolas;
+                height: 100px;
+                line-height: 100px;
+                bottom : 10px;
+                left : calc(50% - 100px);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="logo">
+            <img src="logo-01.svg">
+        </div>
+
+        <div class="timer" id="time">
+                12:30
+        </div>
+        <div class="barback">
+            <div class="bar" id="bar">
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="sponsor sa">
+                <img src="uok-01.svg">
+            </div>
+            <div class="sponsor sb">
+                <img src="koder-01.svg">
+            </div>
+        </div>
+        <div class="coder">
+            CODER : SAYAM QAZI
+        </div>
+    </body>
+    <script>
+        var min  = 30;
+        var totalmin = min;
+        var sec = 1;
+        timestring = "30:00";
+        document.getElementById("time").innerText = timestring;
+        var handler;
+        function clickhandle () {
+            window.setInterval(timerfunc,1000);
+            window.removeEventListener("click", clickhandle);
+        }
+        window.addEventListener("click", clickhandle);
+        function timerfunc() {
+            if (min === 0 && sec === 0)
+                return;
+            sec --;
+            if (sec === -1) {
+                sec = 59;
+                min --;
+            }
+            var mins = "" + min;
+            if (mins.length == 1) mins ="0" + min;
+            var secs = "" + sec;
+            if (secs.length == 1) secs = "0" + sec;
+            timestring = mins + ':' + secs;
+            console.log(timestring);
+            document.getElementById("time").innerText = timestring;
+            document.getElementById("bar").style.width = ((min * 60 + (sec-1)) / (totalmin * 60)) * 100 + "%";
+        }
+    </script>
+</html>

@@ -1,0 +1,44 @@
+STAGE 1
+
+what is the full form of html
+which data structure exhibits LIFO behaviour
+ubuntu is a ______ of linux (What is the correct terminology)
+
+what is the full form of css
+which data structre exhibits FIFO beahviour
+Any for loop logic can be converted into while loop logic, True or False.
+
+what is the full form of xml
+What property a list must have to make binary searching applicable
+Is it absolutely necessary to have a temp variable to swap two varibles values.
+
+what is the full form of http
+Infinite recursion cuases what error
+What is the job of a garbage collector?
+
+what is the full form of cli
+in which type of linked list there is no definite start and end.
+What is the complexity of binary search
+
+STAGE 2
+What is the full from of JVM
+Compiler reads the whole code at once, What is its line by line reading counterpart called?
+Name any two specific types of trees
+
+what is the full form of MVC
+What is the most ammount of ram a 32 bit OS can use?
+An integer is divided by another integer in a program. What happens to the qoutient if they are not perfectly divisible
+
+what is the full form of BST
+Name three types of linked lists
+Complexity of a naive prime finding algorithm grows by?
+
+STAGE 3
+What is the full form of JSON
+How many unique values 8 bits can hold 
+What is the ascii value of capital A?
+
+What is the full form of CRLF
+Name any three sorting algorithms
+Name four image formats.
+

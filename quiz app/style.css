@@ -1,0 +1,131 @@
+* {
+    margin : 0;
+    padding : 0;
+    font-family: "Calibri"
+}
+.frame {
+    position : absolute;
+    display: none;
+    top : 0;
+    right : 0;
+    left : 0;
+    bottom : 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+#welcomeframe {
+    display : block;
+}
+.watermark {
+    position: absolute;
+    bottom : 50px;
+    padding : 5px 8px;
+    font-size: 12px;
+    color : #fff;
+    background-color: #444;
+    border-radius: 12px;
+    width : 140px;
+    font-family: consolas;
+    left : calc(50% - 78px);
+    text-align: center;
+}
+.main-logo {
+    text-align: center;
+    padding: 24px 48px;
+    background-color: #ededed;
+}
+.heading {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+    color : #222;
+    max-width : 980px;
+    margin: 0 auto;
+    padding : 16px;
+    background-color: #fff;
+}
+.subh {
+    max-width: 760px;
+    color : #444;
+    font-size: 30px;
+    padding-top : 0px;
+}
+.big-btn {
+    border-radius: 24px;
+    padding: 12px 16px;
+    color : #fff;
+    background-color: #015d9b;
+    width : 180px;
+    font-size: 20px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.big-btn:hover {
+    background-color: #01568f;
+}
+.sponsor {
+    position: absolute;
+    padding : 16px;
+    bottom : 0;
+}
+.left {
+    left : 0;
+}
+.right {
+    right : 0;
+}
+.teambar {
+    background-color: transparent;
+}
+.teamtile {
+    width : 20%;
+    display: inline-block;
+    background-color : #ddd;
+    padding : 8px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color : white;
+    vertical-align: top;
+}
+#teamred {
+    background-color :  #ea4335;
+}
+#teamgreen {
+    background-color : #34a853;
+}
+#teamblue {
+    background-color :  #4285f4;   
+}
+#teamyellow {
+    background-color :  #fbbc05;
+}
+#teamblack {
+    background-color :  #444444;
+}
+.score {
+    background-color: rgba(0,0,0,0.5);
+    color : white;
+    text-align: center;
+    font-size: 32px;
+    width : 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 32px;
+    margin: 8px auto;
+}
+.question {
+    margin-top : 40px;
+    font-weight: normal;
+}
+.clock {
+    background-color: #d8d8d8;
+    color : #222;
+    width : 100px;
+    height : 100px;
+    line-height: 100px;
+    border-radius: 50px;
+    margin: 16px auto;
+    font-size: 40px;
+}
